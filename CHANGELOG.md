@@ -6,19 +6,19 @@ The format is based on Keep a Changelog.
 
 ---
 
-## [1.0.0] - 2026-06-20
+## [0.0.2] - 2026-06-20
 
 ### Added
-- Initial release of Firebase Helper package
+- Initial release of Flutter Firebase Helper package
 - Email/Password Authentication
 - Google Sign-In support
-- Firestore CRUD operations
+<!-- - Firestore CRUD operations
 - Firebase Storage upload/download
 - Firebase Messaging support
 - Firebase Analytics integration
 - Crashlytics support
 - Remote Config support
-- Multi-platform support (Android, iOS, Web, macOS, Windows, Linux)
+- Multi-platform support (Android, iOS, Web, macOS, Windows, Linux) -->
 
 ---
 
