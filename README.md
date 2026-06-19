@@ -1,39 +1,77 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# 🚀 Firebase Helper Package
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
+A powerful Flutter Firebase Helper Package that simplifies all Firebase services integration in one place.
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
+একটি সম্পূর্ণ Flutter Firebase Helper লাইব্রেরি যা Firebase এর সব ফিচার একসাথে সহজভাবে ব্যবহার করার জন্য তৈরি করা হয়েছে।
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+---
 
-## Features
+# 📦 Features | ফিচারসমূহ
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+## 🔐 Authentication (অথেন্টিকেশন)
+- Email/Password Login & Signup
+- Phone Authentication (OTP)
+- Google Sign-In
+- Apple Sign-In (iOS/macOS)
+- Anonymous Login
+- Email Link Sign-In
+- Sign Out / Logout
+- Password Reset / Forgot Password
 
-## Getting started
+## ☁️ Cloud Firestore
+- Add / Update / Delete / Read Data
+- Stream Builder Support (Real-time)
+- Pagination Support
+- Query Builder (filter, orderBy, limit)
+- Offline persistence support
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+## 📁 Firebase Storage
+- Upload Image / File
+- Download URL
+- Delete File
+- Progress Tracking
 
-## Usage
+## 📩 Firebase Messaging (Push Notification)
+- Device Token generation
+- Foreground / Background notifications
+- Topic-based messaging
+- Local notification support
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+## 📊 Firebase Analytics
+- Custom event tracking
+- Screen tracking
+- User behavior logging
 
-```dart
-const like = 'sample';
-```
+## 🔒 Firebase Crashlytics
+- Automatic crash reporting
+- Custom error logging
 
-## Additional information
+## 🔑 Firebase Remote Config
+- Dynamic config fetch
+- Feature toggle support
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+## 👥 Firebase User Management
+- User profile update
+- User metadata tracking
+- Login state persistence
+
+---
+
+# 🌍 Supported Platforms | সাপোর্টেড প্ল্যাটফর্ম
+
+| Platform | Support |
+|----------|--------|
+| Android 🤖 | ✅ Full Support |
+| iOS 🍏 | ✅ Full Support |
+| Web 🌐 | ⚠️ Partial Support |
+| macOS 💻 | ✅ Supported |
+| Windows 🪟 | ✅ Supported |
+| Linux 🐧 | ✅ Supported |
+
+---
+
+# ⚙️ Installation | ইনস্টলেশন
+
+```yaml
+dependencies:
+  firebase_helper: latest_version
