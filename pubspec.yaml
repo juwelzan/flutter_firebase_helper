@@ -1,6 +1,6 @@
 name: flutter_firebase_helper
 description: A powerful Flutter Firebase helper package that simplifies Firebase Authentication and core services.
-version: 0.0.2
+version: 0.0.3
 homepage: https://github.com/juwelzan/flutter_firebase_helper.git
 
 environment:
