@@ -5,6 +5,16 @@ A powerful Flutter Firebase Helper Package that simplifies all Firebase services
 একটি সম্পূর্ণ Flutter Firebase Helper লাইব্রেরি যা Firebase এর সব ফিচার একসাথে সহজভাবে ব্যবহার করার জন্য তৈরি করা হয়েছে।
 
 ---
+# 🌍 Supported Platforms | সাপোর্টেড প্ল্যাটফর্ম
+
+| Platform | Support |
+|----------|--------|
+| Android 🤖 | ✅ Full Support |
+| iOS 🍏 | ✅ Full Support |
+| Web 🌐 | ⚠️ Partial Support |
+| macOS 💻 | ✅ Supported |
+| Windows 🪟 | ✅ Supported |
+| Linux 🐧 | ✅ Supported |
 
 # 📦 Features | ফিচারসমূহ
 
@@ -57,21 +67,8 @@ A powerful Flutter Firebase Helper Package that simplifies all Firebase services
 
 ---
 
-# 🌍 Supported Platforms | সাপোর্টেড প্ল্যাটফর্ম
 
-| Platform | Support |
-|----------|--------|
-| Android 🤖 | ✅ Full Support |
-| iOS 🍏 | ✅ Full Support |
-| Web 🌐 | ⚠️ Partial Support |
-| macOS 💻 | ✅ Supported |
-| Windows 🪟 | ✅ Supported |
-| Linux 🐧 | ✅ Supported |
 
----
 
-# ⚙️ Installation | ইনস্টলেশন
 
-```yaml
-dependencies:
-  firebase_helper: latest_version
+
