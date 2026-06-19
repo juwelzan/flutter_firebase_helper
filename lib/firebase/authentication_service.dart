@@ -4,14 +4,19 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthenticationService {
-  final _LoginOrCreateWithEmailAndPassword loginOrCreateWithEmailAndPassword =
-      _LoginOrCreateWithEmailAndPassword();
-  final _LoginWithGoogle loginWithGoogle = _LoginWithGoogle();
-}
-
-class _LoginOrCreateWithEmailAndPassword {
   final _auth = FirebaseAuth.instance;
-  Future register({
+  final GoogleSignIn _googleSignIn = GoogleSignIn.instance;
+
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///    Register With Email password
+  ///
+  ///
+  Future registerWithEmailPass({
     required String displayName,
     required String email,
     required String password,
@@ -29,7 +34,18 @@ class _LoginOrCreateWithEmailAndPassword {
     } on FirebaseAuthException {}
   }
 
-  Future signIn({required String email, required String password}) async {
+  ///
+  ///
+  ///
+  ///
+  ///      SignIn With Email and password
+  ///
+  ///
+
+  Future signInWithEmailPass({
+    required String email,
+    required String password,
+  }) async {
     try {
       final cred = await _auth.signInWithEmailAndPassword(
         email: email,
@@ -38,11 +54,19 @@ class _LoginOrCreateWithEmailAndPassword {
       return cred.user!;
     } on FirebaseAuthException {}
   }
-}
 
-class _LoginWithGoogle {
-  final GoogleSignIn _googleSignIn = GoogleSignIn.instance;
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///
+  ///    SignIn With Google
+  ///
+  ///
+
   Future signInWithGoogle() async {
     try {
       final GoogleSignInAccount? googleUser = await _googleSignIn
@@ -58,6 +82,62 @@ class _LoginWithGoogle {
       return result.user!;
     } on FirebaseAuthException {}
   }
+
+  Future resetPassword(String email) async {
+    await _auth.sendPasswordResetEmail(email: email);
+  }
+
+  Future verifyPasswordResetCode(String code) async {
+    await _auth.verifyPasswordResetCode(code);
+  }
+
+  Future updatePassword(String newPassword) async {
+    await _auth.currentUser?.updatePassword(newPassword);
+  }
+
+  ///
+  ///
+  ///
+  /// login With Phone number
+  ///
+  ///
+  Future sendOTPPhoneNumber({
+    required String phoneNumber,
+    Duration? timeout,
+    required Function(String verificationId) onCodeSend,
+    required Function(String error) onError,
+    Function(PhoneAuthCredential phoneAuthCredential)? onAutoVerified,
+  }) async {
+    try {
+      await _auth.verifyPhoneNumber(
+        phoneNumber: phoneNumber,
+
+        timeout: timeout ?? Duration(seconds: 120),
+        verificationCompleted: (phoneAuthCredential) async {
+          if (onAutoVerified != null) {
+            onAutoVerified(phoneAuthCredential);
+          } else {
+            await _auth.signInWithCredential(phoneAuthCredential);
+          }
+        },
+        verificationFailed: (error) {
+          onError(error.message ?? "smutting wring");
+        },
+        codeSent: (verificationId, forceResendingToken) {
+          onCodeSend(verificationId);
+        },
+        codeAutoRetrievalTimeout: (verificationId) {},
+      );
+    } on FirebaseAuthException catch (e) {}
+  }
+
+  ///
+  ///
+  ///
+  ///
+  ///Sing out
+  ///
+  ///
 
   Future signOut() async {
     await _auth.signOut();
