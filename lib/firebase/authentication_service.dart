@@ -4,9 +4,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthenticationService {
-  static _LoginOrCreateWithEmailAndPassword loginOrCreateWithEmailAndPassword =
+  final _LoginOrCreateWithEmailAndPassword loginOrCreateWithEmailAndPassword =
       _LoginOrCreateWithEmailAndPassword();
-  static _LoginWithGoogle loginWithGoogle = _LoginWithGoogle();
+  final _LoginWithGoogle loginWithGoogle = _LoginWithGoogle();
 }
 
 class _LoginOrCreateWithEmailAndPassword {
