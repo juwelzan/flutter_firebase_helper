@@ -26,7 +26,7 @@ class _LoginOrCreateWithEmailAndPassword {
       if (sendEmailVerification) await cred.user?.sendEmailVerification();
 
       return cred.user!;
-    } on FirebaseAuthException catch (e) {}
+    } on FirebaseAuthException {}
   }
 
   Future signIn({required String email, required String password}) async {
@@ -36,7 +36,7 @@ class _LoginOrCreateWithEmailAndPassword {
         password: password,
       );
       return cred.user!;
-    } on FirebaseAuthException catch (e) {}
+    } on FirebaseAuthException {}
   }
 }
 
@@ -56,7 +56,7 @@ class _LoginWithGoogle {
 
       final result = await _auth.signInWithCredential(credential);
       return result.user!;
-    } on FirebaseAuthException catch (e) {}
+    } on FirebaseAuthException {}
   }
 
   Future signOut() async {
