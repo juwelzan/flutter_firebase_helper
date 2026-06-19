@@ -4,11 +4,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthenticationService {
-  static _EmailAndPasswordWithLoginOrCreate emailAndPasswordWithLoginOrCreate =
-      _EmailAndPasswordWithLoginOrCreate();
+  static _LoginOrCreateWithEmailAndPassword loginOrCreateWithEmailAndPassword =
+      _LoginOrCreateWithEmailAndPassword();
+  static _LoginWithGoogle loginWithGoogle = _LoginWithGoogle();
 }
 
-class _EmailAndPasswordWithLoginOrCreate {
+class _LoginOrCreateWithEmailAndPassword {
   final _auth = FirebaseAuth.instance;
   Future register({
     required String displayName,
@@ -39,7 +40,7 @@ class _EmailAndPasswordWithLoginOrCreate {
   }
 }
 
-class _GoogleAuthService {
+class _LoginWithGoogle {
   final GoogleSignIn _googleSignIn = GoogleSignIn.instance;
   final FirebaseAuth _auth = FirebaseAuth.instance;
   Future signInWithGoogle() async {
