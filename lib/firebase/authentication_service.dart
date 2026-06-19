@@ -1,6 +1,7 @@
 // ignore_for_file: unnecessary_nullable_for_final_variable_declarations, unused_element, library_private_types_in_public_api
 
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/widgets.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthenticationService {
@@ -31,7 +32,9 @@ class AuthenticationService {
       if (sendEmailVerification) await cred.user?.sendEmailVerification();
 
       return cred.user!;
-    } on FirebaseAuthException {}
+    } on FirebaseAuthException catch (e) {
+      debugPrint("Authentication Error: $e");
+    }
   }
 
   ///
@@ -52,7 +55,9 @@ class AuthenticationService {
         password: password,
       );
       return cred.user!;
-    } on FirebaseAuthException {}
+    } on FirebaseAuthException catch (e) {
+      debugPrint("Authentication Error: $e");
+    }
   }
 
   ///
@@ -69,8 +74,8 @@ class AuthenticationService {
 
   Future signInWithGoogle() async {
     try {
-      final GoogleSignInAccount? googleUser = await _googleSignIn
-          .authenticate();
+      final GoogleSignInAccount? googleUser =
+          await _googleSignIn.authenticate();
 
       if (googleUser == null) return;
       final googleAuth = googleUser.authentication;
@@ -80,7 +85,9 @@ class AuthenticationService {
 
       final result = await _auth.signInWithCredential(credential);
       return result.user!;
-    } on FirebaseAuthException {}
+    } on FirebaseAuthException catch (e) {
+      debugPrint("Authentication Error: $e");
+    }
   }
 
   Future resetPassword(String email) async {
@@ -111,7 +118,6 @@ class AuthenticationService {
     try {
       await _auth.verifyPhoneNumber(
         phoneNumber: phoneNumber,
-
         timeout: timeout ?? Duration(seconds: 120),
         verificationCompleted: (phoneAuthCredential) async {
           if (onAutoVerified != null) {
@@ -128,7 +134,9 @@ class AuthenticationService {
         },
         codeAutoRetrievalTimeout: (verificationId) {},
       );
-    } on FirebaseAuthException catch (e) {}
+    } on FirebaseAuthException catch (e) {
+      debugPrint("Authentication Error: $e");
+    }
   }
 
   ///
