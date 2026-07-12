@@ -4,8 +4,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class FirebaseAuthState {
-  static FirebaseAuth fire = FirebaseAuth.instance;
-  static Future<Widget> stateChanges({
+  FirebaseAuth fire = FirebaseAuth.instance;
+  Future<Widget> stateChanges({
     Widget? Function(BuildContext)? loadingScreen,
     required Widget Function(BuildContext, User) homeScreen,
     required Widget Function(BuildContext) loginScreen,
